@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "BaudGenTB_behav" "xil_defaultlib.BaudGenTB" -log "elaborate.log" 

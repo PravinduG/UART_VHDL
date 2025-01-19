@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Baud_Rate_Gen.srcs/sources_1/new/BaudGenTop.vhd" \
-"../../../../Baud_Rate_Gen.srcs/sim_1/new/BaudGenTB.vhd" \
-
-# Do not sort compile order
-nosort
