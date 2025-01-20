@@ -90,6 +90,7 @@ begin
 				when STOP =>
 					tx_o																			<= '1';																							-- End bit
 					cur_state																	<= IDLE;	
+					tx_ready_o																<= '0';
 			end case;
 		end if;
 	end process;
