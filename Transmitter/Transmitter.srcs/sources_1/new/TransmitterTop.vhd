@@ -90,7 +90,8 @@ begin
 				when STOP =>
 					tx_o																			<= '1';																							-- End bit
 					cur_state																	<= IDLE;	
-					tx_ready_o																<= '0';
+					tx_ready_o																<= '0';	-- Since we use this output to pull down TX_ENABLE, we need this here. if it's in IDLE, this will never become
+																														-- 0 as it will constantly satisfy the if condition there
 			end case;
 		end if;
 	end process;
