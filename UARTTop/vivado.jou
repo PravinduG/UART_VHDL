@@ -28,3 +28,24 @@ launch_simulation
 source UARTTopTB.tcl
 relaunch_sim
 run 30 ms
+relaunch_sim
+run 30 ms
+relaunch_sim
+run 30 ms
+relaunch_sim
+run 30 ms
+relaunch_sim
+run 30 ms
+close_sim
+launch_simulation
+source UARTTopTB.tcl
+relaunch_sim
+run 30 ms
+relaunch_sim
+run 30 ms
+relaunch_sim
+run 30 ms
+relaunch_sim
+run 30 ms
+relaunch_sim
+run 30 ms

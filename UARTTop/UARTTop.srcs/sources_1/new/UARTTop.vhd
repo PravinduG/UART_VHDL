@@ -92,6 +92,7 @@ component ReceiverTop is
 		Port ( 
 						CLK																			: in STD_LOGIC
 					;	RESET 																	: in STD_LOGIC
+					; SAMPLE_CLK_I														: in STD_LOGIC
 					;	DATA_IN																	: in STD_LOGIC										-- TX of Transmitter Top
 					; TX_READY																: in STD_LOGIC										-- TX_READY of Transmitter Top
 					; RX_DATA																	: out STD_LOGIC_VECTOR(7 downto 0)
@@ -124,8 +125,9 @@ begin
 							
 	inst_Rx : ReceiverTop
 		port map ( 
-								CLK																	=> sample_clk
+								CLK																	=> CLK
 							,	RESET 															=> RESET
+							, SAMPLE_CLK_I												=> sample_clk
 							,	DATA_IN															=> tx_o
 							, TX_READY														=> tx_ready_o
 							, RX_DATA															=> rx_data_o
@@ -138,7 +140,7 @@ begin
 		if (RESET = '1') then 
 			baud_clk_reset_i															<= '0';
 			tx_enable_i																		<= '0';
-		elsif(rising_edge(CLK)) then
+		else 
 			tx_data_i																			<= TX_DATA;
 			tx_enable_i																		<= TX_ENABLE;
 			TX_READY																			<= tx_ready_o;

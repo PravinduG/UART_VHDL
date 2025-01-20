@@ -43,6 +43,7 @@ component ReceiverTop is
 		Port ( 
 						CLK																			: in STD_LOGIC
 					;	RESET 																	: in STD_LOGIC
+					; SAMPLE_CLK_I														: in STD_LOGIC
 					;	DATA_IN																	: in STD_LOGIC
 					; TX_READY																: in STD_LOGIC
 					; RX_DATA																	: out STD_LOGIC_VECTOR(7 downto 0)
@@ -50,6 +51,7 @@ component ReceiverTop is
 					);
 end component;
 signal clk 																					: std_logic;
+signal sample_clk																		: std_logic;
 signal reset 																				: std_logic;
 constant clk_period																	: time:=10ns;
 signal data_in																			: std_logic;
@@ -63,6 +65,7 @@ begin
 			port map( 
 								CLK																	=> clk 
 							,	RESET 															=> reset 
+							, SAMPLE_CLK_I												=> sample_clk
 							,	DATA_IN															=> data_in
 							, TX_READY														=> tx_ready 
 							, RX_DATA															=> rx_data 
@@ -74,6 +77,14 @@ begin
 		wait for clk_period/2;
 	  clk 																						<= '0';
 		wait for clk_period/2;
+	end process;
+	
+	sample_clk_gen : process
+	begin 
+		sample_clk																			<= '0';
+		wait for 52us;
+		sample_clk																			<= '1';
+		wait for 52us;
 	end process;
 	
 	reset_proc : process
@@ -88,52 +99,52 @@ begin
 	begin
 		data_in																			<= '1';
 		tx_ready 																		<= '0';
-		wait for 200ns;
+		wait for 200us;
 		data_in																			<= '0';
 		tx_ready																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		tx_ready  																	<= '0';
 		
 		wait for 100ns;
 		tx_ready																		<= '1';
 		data_in																			<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		tx_ready  																	<= '0';
 		
 		wait for 100ns;
@@ -142,49 +153,49 @@ begin
 		wait for 100ns;
 		tx_ready																		<= '1';
 		data_in																			<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		tx_ready  																	<= '0';
 		
 		wait for 100ns;
 		tx_ready																		<= '1';
 		data_in																			<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '0';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		data_in 																		<= '1';
-		wait for 10ns;
+		wait for 52us;
 		tx_ready  																	<= '1';
 		
 		

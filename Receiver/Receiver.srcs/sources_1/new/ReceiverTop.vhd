@@ -35,6 +35,7 @@ entity ReceiverTop is
 		Port ( 
 						CLK																			: in STD_LOGIC
 					;	RESET 																	: in STD_LOGIC
+					; SAMPLE_CLK_I														: in STD_LOGIC
 					;	DATA_IN																	: in STD_LOGIC
 					; TX_READY																: in STD_LOGIC							
 					; RX_DATA																	: out STD_LOGIC_VECTOR(7 downto 0)
@@ -55,15 +56,15 @@ signal actual_state																	: RX_STATES; 																			-- for dbg
 -- signal rx_data_in																		: std_logic_vector(7 downto 0);
 
 begin
-	sample_clk_gen : process(CLK, RESET)
+	sample_clk_gen : process(CLK, RESET, SAMPLE_CLK_I)
 	begin
 	sample_clk_bk																			<= sample_clk;
 		if(RESET = '1') then 
 			sample_clk																		<= '0';
 			sample_clk_bk																	<= '0';
-		elsif (falling_edge(CLK)) then 
+		elsif (falling_edge(SAMPLE_CLK_I)) then 
 			sample_clk																		<= '1';
-		elsif	(rising_edge(CLK)) then 
+		elsif	(rising_edge(SAMPLE_CLK_I)) then 
 			sample_clk																		<= '0';
 		end if;
 			
