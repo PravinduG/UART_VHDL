@@ -91,7 +91,7 @@ begin
 			tx_clk_bk 																		<= '0';
 		elsif(rising_edge(CLK)) then 
 			tx_clk_bk																				<= tx_clk;
-			if (baud_counter = baud_divisor) then 
+			if (baud_counter >= baud_divisor) then 
 				tx_clk																			<= not tx_clk;
 				baud_counter																<= (others => '0');
 			else 
