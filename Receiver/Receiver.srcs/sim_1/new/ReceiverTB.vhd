@@ -43,11 +43,10 @@ component ReceiverTop is
 		Port ( 
 						CLK																			: in STD_LOGIC
 					;	RESET 																	: in STD_LOGIC
-					; SAMPLE_CLK_I														: in STD_LOGIC
 					;	DATA_IN																	: in STD_LOGIC
-					; TX_READY																: in STD_LOGIC
-					; RX_DATA																	: out STD_LOGIC_VECTOR(7 downto 0)
-					; RX_READY																: out STD_LOGIC				
+					; RX_CONTROL															: in STD_LOGIC_VECTOR(31 downto 0)						
+					; RX_DATA																	: out STD_LOGIC_VECTOR(7 downto 0)			
+					; RX_STATUS																: out STD_LOGIC_VECTOR(31 downto 0)			
 					);
 end component;
 signal clk 																					: std_logic;
@@ -55,9 +54,9 @@ signal sample_clk																		: std_logic;
 signal reset 																				: std_logic;
 constant clk_period																	: time:=10ns;
 signal data_in																			: std_logic;
-signal tx_ready 																		: std_logic;
 signal rx_data 																			: std_logic_vector(7 downto 0);
-signal rx_ready 																		: std_logic;
+signal rx_control_reg																: std_logic_vector(31 downto 0);
+signal rx_status_reg																: std_logic_vector(31 downto 0);
 
 begin
 
@@ -65,11 +64,10 @@ begin
 			port map( 
 								CLK																	=> clk 
 							,	RESET 															=> reset 
-							, SAMPLE_CLK_I												=> sample_clk
 							,	DATA_IN															=> data_in
-							, TX_READY														=> tx_ready 
+							, RX_CONTROL													=> rx_control_reg
 							, RX_DATA															=> rx_data 
-							, RX_READY														=> rx_ready
+							, RX_STATUS 													=> rx_status_reg
 							);
 	clk_gen : process
 	begin
@@ -82,9 +80,9 @@ begin
 	sample_clk_gen : process
 	begin 
 		sample_clk																			<= '0';
-		wait for 52us;
+		wait for 104us;
 		sample_clk																			<= '1';
-		wait for 52us;
+		wait for 104us;
 	end process;
 	
 	reset_proc : process
@@ -98,105 +96,104 @@ begin
 	sim_proc : process
 	begin
 		data_in																			<= '1';
-		tx_ready 																		<= '0';
+		rx_control_reg															<= x"30000000";
 		wait for 200us;
 		data_in																			<= '0';
-		tx_ready																		<= '1';
-		wait for 52us;
+		rx_control_reg															<= x"30000001";
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
-		tx_ready  																	<= '0';
+		wait for 104us;
+		rx_control_reg															<= x"30000000";
 		
-		wait for 100ns;
-		tx_ready																		<= '1';
+		wait for 100us;
+		rx_control_reg															<= x"30000001";
 		data_in																			<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
-		tx_ready  																	<= '0';
+		wait for 104us;
+		rx_control_reg															<= x"30000000";
 		
-		wait for 100ns;
+		wait for 100us;
 		data_in																			<= '0';
 		
-		wait for 100ns;
-		tx_ready																		<= '1';
+		wait for 100us;
+		rx_control_reg															<= x"30000001";
 		data_in																			<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
-		tx_ready  																	<= '0';
+		wait for 104us;
+		rx_control_reg															<= x"30000000";
 		
-		wait for 100ns;
-		tx_ready																		<= '1';
+		wait for 100us;
+		rx_control_reg															<= x"30000001";
 		data_in																			<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '0';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
+		wait for 104us;
 		data_in 																		<= '1';
-		wait for 52us;
-		tx_ready  																	<= '1';
+		rx_control_reg															<= x"30000001";
 		
 		
 		wait;
