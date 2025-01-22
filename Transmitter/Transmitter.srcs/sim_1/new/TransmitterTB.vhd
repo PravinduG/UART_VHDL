@@ -43,15 +43,17 @@ signal tx_data 																			: std_logic_vector(7 downto 0);
 signal tx_enable																		: std_logic;
 signal tx_ready 																		: std_logic;
 signal tx 																					: std_logic;
+signal tx_control_reg 															: std_logic_vector(31 downto 0);
+signal tx_status_reg																: std_logic_vector(31 downto 0);
 
 component TransmitterTop is
     Port ( 
-						CLK 																		: in STD_LOGIC																			-- Connects to BAUD_CLK
+						CLK 																		: in STD_LOGIC																			-- Connects to main clock
           ;	RESET 																	: in STD_LOGIC																			
 					; TX_DATA																	: in STD_LOGIC_VECTOR(7 downto 0)
-					; TX_ENABLE																: in STD_LOGIC 																			-- Set low to begin transmit
-					; TX_READY																: out STD_LOGIC 																		-- High when transmitting 
+					; TX_CONTROL															: in STD_LOGIC_VECTOR(31 downto 0) 									-- 31 downto 28 gets baud divisor
 					; TX																			: out STD_LOGIC	
+					; TX_STATUS																: out STD_LOGIC_VECTOR(31 downto 0)
 				  );
 end component;
 
@@ -60,12 +62,12 @@ end component;
 begin
 	inst_TX : TransmitterTop
 		port map (
-								CLK 																=> clk																							-- Connects to BAUD_CLK
+								CLK 																=> clk																							
 							,	RESET 															=> reset																						
 							, TX_DATA															=> tx_data															
-							, TX_ENABLE														=> tx_enable																				-- Set low to begin transmit
-							, TX_READY														=> tx_ready																					-- High when transmitting 
+							, TX_CONTROL													=> tx_control_reg																	
 							, TX																	=> tx
+							, TX_STATUS														=> tx_status_reg																			 
 							);
 
 	clk_gen : process
@@ -86,14 +88,16 @@ begin
 	
 	sim_proc : process
 	begin
-		wait for 100ns;
-		tx_data																					<= "00000000";
-		tx_enable																				<= '0';
-		wait for 100ns;
+		wait for 200ns;
 		tx_data																					<= "00110011";
-		tx_enable																				<= '1';
-		wait for 90ns;
-		tx_enable																				<= '0';
+		tx_control_reg																	<= x"30000001";
+		wait until tx_status_reg = x"00000000";
+		tx_control_reg																	<= x"30000000";
+		wait for 200ns;
+		tx_data																					<= "11011100";
+		tx_control_reg																	<= x"30000001";
+		wait until tx_status_reg = x"00000000";
+		tx_control_reg																	<= x"30000000";
 		wait;
 	end process;
 	
