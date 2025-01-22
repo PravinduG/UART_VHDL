@@ -51,13 +51,15 @@ signal tx_ready_o																		: std_logic;
 signal tx_data_i																		: std_logic_vector(7 downto 0);
 signal tx_o																					: std_logic;
 signal tx_state																			: integer;
+signal actual_tx_state															: TX_STATES;																				-- dbg
 -- signal tx_ongoing																		: std_logic;
+
+--	tx_clk
 signal tx_enable 																		: std_logic;
 signal baud_divisor																	: unsigned(19 downto 0);
 signal baud_counter 																: unsigned(19 downto 0);
 signal tx_clk																				: std_logic;
 signal tx_clk_bk																		: std_logic;
-signal actual_tx_state															: TX_STATES;
 
 begin
 
