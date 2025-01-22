@@ -39,23 +39,27 @@ architecture Behavioral of UARTTopTB is
 signal clk 																					: std_logic;
 signal reset 																				: std_logic;
 constant clk_period																	: time:= 10ns;
-signal baud_rate_i																	: integer := 9600;
+signal baud_rate_i																	: std_logic_vector(3 downto 0) := x"3";
 signal tx_data_i																		: std_logic_vector(7 downto 0);
-signal tx_enable_i																	: std_logic;
-signal tx_ready_tb																	: std_logic;
+
+
 signal rx_data_tb																		: std_logic_vector(7 downto 0);
-signal rx_ready_tb																	: std_logic;
+signal tx_status_reg																: std_logic_vector(31 downto 0);
+signal rx_status_reg																: std_logic_vector(31 downto 0);
+signal tx_control_reg																: std_logic_vector(31 downto 0);
+signal rx_control_reg																: std_logic_vector(31 downto 0);
+
 
 component UARTTop is
 			Port ( 
 							CLK																		: in STD_LOGIC
 						; RESET 																: in STD_LOGIC 
-						; BAUD_RATE                             : in integer
+						; TX_CONTROL														: in STD_LOGIC_VECTOR(31 downto 0)
+						; RX_CONTROL														: in STD_LOGIC_VECTOR(31 downto 0)
 						; TX_DATA																: in STD_LOGIC_VECTOR(7 downto 0)
-						; TX_ENABLE															: in STD_LOGIC
-						; TX_READY															: out STD_LOGIC
 						; RX_DATA 															: out STD_LOGIC_VECTOR(7 downto 0)
-						; RX_READY															: out STD_LOGIC
+						; TX_STATUS															: out STD_LOGIC_VECTOR(31 downto 0)
+						; RX_STATUS															: out STD_LOGIC_VECTOR(31 downto 0)
 						);
 end component;
 
@@ -64,12 +68,12 @@ begin
 		port map(
 							CLK 																	=> clk 
 						, RESET																	=> reset 
-						, BAUD_RATE															=> baud_rate_i
+						, TX_CONTROL														=> tx_control_reg
+						, RX_CONTROL														=> rx_control_reg
 						, TX_DATA																=> tx_data_i
-						, TX_ENABLE															=> tx_enable_i
-						, TX_READY															=> tx_ready_tb
 						, RX_DATA																=> rx_data_tb
-						, RX_READY															=> rx_ready_tb
+						, TX_STATUS															=> tx_status_reg
+						, RX_STATUS															=> rx_status_reg
 						);
 
 	clk_gen : process
@@ -92,16 +96,54 @@ begin
 	begin
 		wait for 100ns;
 		tx_data_i																				<= "00110011";
-		tx_enable_i																			<= '1';
-		wait for 1041800ns;
-		tx_enable_i																			<= '0';
-		tx_data_i																				<= (others => '0');
-		wait for 208360ns;
-		tx_data_i																				<= "01110101";
-		tx_enable_i																			<= '1';
-		wait for 1041800ns;
-		tx_enable_i																			<= '0';
-		tx_data_i																				<= (others => '0');
+		tx_control_reg																	<= x"30000000";
+		rx_control_reg																	<= x"30000000";
+		wait for 100ns;
+		tx_control_reg																	<= x"30000001";
+		wait until tx_status_reg = x"00000000";
+		tx_control_reg																	<= x"30000000";
+		wait until rx_status_reg = x"00000001";
+		
+		wait for 100us;
+		tx_data_i																				<= "11101100";
+		tx_control_reg																	<= x"30000000";
+		rx_control_reg																	<= x"30000000";
+		wait for 100ns;
+		tx_control_reg																	<= x"30000001";
+		wait until tx_status_reg = x"00000000";
+		tx_control_reg																	<= x"30000000";
+		wait until rx_status_reg = x"00000001";
+		
+		wait for 100us;
+		tx_data_i																				<= "00010011";
+		tx_control_reg																	<= x"30000000";
+		rx_control_reg																	<= x"30000000";
+		wait for 100ns;
+		tx_control_reg																	<= x"30000001";
+		wait until tx_status_reg = x"00000000";
+		tx_control_reg																	<= x"30000000";
+		wait until rx_status_reg = x"00000001";
+		
+		wait for 100us;
+		tx_data_i																				<= "10101010";
+		tx_control_reg																	<= x"40000000";
+		rx_control_reg																	<= x"40000000";
+		wait for 1000us;
+		tx_control_reg																	<= x"40000001";
+		wait until tx_status_reg = x"00000000";
+		tx_control_reg																	<= x"40000000";
+		wait until rx_status_reg = x"00000001";
+		
+		
+		--	wait for 1041800ns;
+		--	tx_enable_i																			<= '0';
+		--	tx_data_i																				<= (others => '0');
+		--	wait for 208360ns;
+		--	tx_data_i																				<= "01110101";
+		--	tx_enable_i																			<= '1';
+		--	wait for 1041800ns;
+		--	tx_enable_i																			<= '0';
+		--	tx_data_i																				<= (others => '0');
 		wait;
 	end process;
 	

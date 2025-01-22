@@ -477,3 +477,7 @@ INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to
 INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
 Time resolution is 1 ps
 run 30 ms
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jan 20 23:12:35 2025...
