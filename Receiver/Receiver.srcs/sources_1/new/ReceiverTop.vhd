@@ -51,8 +51,8 @@ signal cur_state																		: RX_STATES;
 signal rx_data_o																		: std_logic_vector(7 downto 0);
 signal rx_ready_o																		: std_logic;
 signal rx_state																			: integer;
-signal sample_clk																		: std_logic;
-signal sample_clk_bk																: std_logic;
+signal sample_clk																		: std_logic; -- remove
+signal sample_clk_bk																: std_logic; -- remove
 signal rx_error																			: std_logic;
 signal actual_state																	: RX_STATES; 																			-- for dbg
 
@@ -62,7 +62,9 @@ signal baud_counter 																: unsigned(19 downto 0);
 signal rx_clk																				: std_logic;
 signal rx_clk_bk																		: std_logic;
 signal rx_clk_enable																: std_logic;
-signal first_half_cycle_complete										: std_logic; -- Used to shift rx_clk by half a clock cycle
+signal additional_cycles														: std_logic; -- Otherwise clock will stop as soon as tx_busy becomes 0. won't go back into 
+																																 -- IDLE and will be stuck in STOP
+
 
 begin
 
@@ -90,14 +92,16 @@ begin
 	rx_clk_gen : process(CLK, RESET, RX_CONTROL)
 	begin
 		rx_clk_enable																		<= RX_CONTROL(0); -- Automatically enables rx_clk (ie rx proc) when tx is available
-		if (RESET = '1' or rx_clk_enable = '0') then 
+		if (RESET = '1') then 
 			rx_clk																				<= '0';
 			rx_clk_bk																			<= '0';
 			baud_counter																	<= (others => '0');
-			first_half_cycle_complete											<= '0';
+		elsif (rx_clk_enable = '0' and additional_cycles = '0') then 
+			rx_clk																				<= '0';
+			rx_clk_bk																			<= '0';
 		elsif(rising_edge(CLK)) then 
 			rx_clk_bk																			<= rx_clk;
-			if (rx_clk_enable = '1') then 
+			if (rx_clk_enable = '1' or additional_cycles = '1') then 
 				--	if (first_half_cycle_complete = '0') then 
 				--		if (baud_counter = '0' & baud_divisor(7 downto 1)) then 		-- Half clock cycle for first half cycle to complete
 				--			rx_clk																	<= not rx_clk;
@@ -115,7 +119,7 @@ begin
 				--		end if;
 				--	end if;
 				
-				if (baud_counter = baud_divisor) then 
+				if (baud_counter >= baud_divisor) then 
 					rx_clk																		<= not rx_clk;
 					baud_counter															<= (others => '0');
 				else
@@ -132,47 +136,49 @@ begin
 			cur_state																			<= IDLE;
 			rx_error																			<= '0';
 			RX_STATUS																			<= (others => '0');
-		elsif(rising_edge(CLK)) then 
-			actual_state																	<= cur_state; 																			-- for dbg
+			additional_cycles        											<= '0';
+		elsif(rising_edge(CLK)) then		
+			actual_state																	<= cur_state; 																		-- for dbg
 			RX_DATA																				<= rx_data_o;
 			RX_STATUS(0)																	<= rx_ready_o;
 			RX_STATUS(4)																	<= rx_error;
 			if(rx_clk = '1' and rx_clk_bk = '0') then  																												-- Try rising_edge(sample_clk)
 				case cur_state is 
 					when IDLE =>
-						rx_state																	<= 0;
-						
+						rx_state																<= 0;
+						additional_cycles 											<= '0';
 						if (RX_CONTROL(0) = '1' and DATA_IN = '0') then 
-							rx_ready_o															<= '0';
-							rx_data_o																<= (others => '0');																-- Data kept till next tx begins
-							cur_state																<= RECEIVING;
-							rx_state																<= 1;
-							rx_error																<= '0';
+							rx_ready_o														<= '0';
+							rx_data_o															<= (others => '0');																-- Data kept till next tx begins
+							cur_state															<= RECEIVING;
+							rx_state															<= 1;
+							rx_error															<= '0';
 						elsif (RX_CONTROL(0) = '0' and DATA_IN = '0') then 
-							rx_error																<= '1';
-							rx_ready_o															<= '0';
+							rx_error															<= '1';
+							rx_ready_o														<= '0';
 						end if;
 
 					when RECEIVING =>
 						if (rx_state = 8) then 
-							cur_state																<= STOP;
+							additional_cycles 										<= '1';
+							cur_state															<= STOP;
 						end if;
 																								
-						rx_data_o																	<= DATA_IN & rx_data_o(7 downto 1);
-						rx_state																	<= rx_state + 1;
+						rx_data_o																<= DATA_IN & rx_data_o(7 downto 1);
+						rx_state																<= rx_state + 1;
 						
 						-- rx_data_o(8 - rx_state) <= DATA_IN; Which would be better?
 						
 						
 					when STOP =>
 						if (DATA_IN = '1' and rx_state = 9) then 
-							cur_state																<= IDLE;
-							rx_ready_o															<= '1';
-							rx_state																<= 0;
+							cur_state															<= IDLE;
+							rx_ready_o														<= '1';
+							rx_state															<= 0;
 						elsif (DATA_IN = '0' and rx_state = 9) then 
-							rx_error																<= '1';
-							rx_ready_o															<= '0';
-							cur_state																<= IDLE;
+							rx_error															<= '1';
+							rx_ready_o														<= '0';
+							cur_state															<= IDLE;
 						end if;
 
 				end case;
