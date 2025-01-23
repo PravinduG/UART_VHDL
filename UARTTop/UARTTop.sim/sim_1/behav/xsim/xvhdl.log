@@ -1,0 +1,6 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/Receiver/Receiver.srcs/sources_1/new/ReceiverTop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ReceiverTop'
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.srcs/sources_1/new/TransmitterTop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'TransmitterTop'
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sources_1/new/UARTTop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'UARTTop'

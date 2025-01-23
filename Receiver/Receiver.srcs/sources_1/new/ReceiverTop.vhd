@@ -16,7 +16,7 @@
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- RX_CONTROL 								-> 31 - 28 : baud divisor select
--- 																		 0 : RX_ENABLE is TX_READY (tx_ready_o)
+-- 																		 0 : RX_ENABLE is TX_READY (tx_ongoing)
 -- RX_STATUS									-> 			 4 : rx_error 
 --																		 0 : RX_READY
 ----------------------------------------------------------------------------------
