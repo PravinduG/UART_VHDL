@@ -16,7 +16,7 @@
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- TX_CONTROL 								-> 31 - 28 : baud divisor select
---																		 8 : fifo wr_en
+--																		 8 : fifo tx_wr_en
 --																		 4 : reset_tx
 -- 																		 0 : TX_ENABLE
 -- TX_STATUS									-> 			 8 : tx_fifo_full
@@ -68,8 +68,8 @@ signal tx_clk																				: std_logic;
 signal tx_clk_bk																		: std_logic;
 
 -- TX FIFO
-signal wr_en																				: std_logic;
-signal rd_en																				: std_logic;
+signal tx_wr_en																				: std_logic;
+signal tx_rd_en																				: std_logic;
 signal tx_fifo_out																	: std_logic_vector(7 downto 0);
 signal tx_fifo_full																	: std_logic;
 signal tx_fifo_almost_full													:	std_logic;
@@ -104,8 +104,8 @@ tx_fifo : fifo_generator_0
 			clk 																					=> CLK
     ,	srst 																					=> reset_tx
     ,	din 																					=> TX_DATA
-    ,	wr_en 																				=> wr_en
-    ,	rd_en 																				=> rd_en
+    ,	wr_en 																				=> tx_wr_en
+    ,	rd_en 																				=> tx_rd_en
     ,	dout 																					=> tx_fifo_out
     ,	full 																					=> tx_fifo_full
 		, almost_full																		=> tx_fifo_almost_full
@@ -135,7 +135,7 @@ tx_fifo : fifo_generator_0
 	
 	
 	TX_STATUS																			 		<= x"00000" & "000" & tx_fifo_full & "000" & tx_fifo_almost_full & "000" & tx_ongoing;
-	wr_en																							<= TX_CONTROL(8);
+	tx_wr_en																							<= TX_CONTROL(8);
 
 	
 	tx_clock_gen : process(CLK, RESET, TX_CONTROL) 
@@ -159,16 +159,16 @@ tx_fifo : fifo_generator_0
 	begin
 		if (RESET = '1') then 
 			reset_tx																			<= '1';																							-- Reset fifo and transmission
-			rd_en																					<= '0';
+			tx_rd_en																			<= '0';
 			tx_fifo_out_ready 														<= '0';
 			tx_ongoing_bk																	<= '0';
 		elsif (rising_edge(CLK)) then 
 			reset_tx																			<= RESET;
 			if (tx_fifo_empty = '1' or tx_enable = '0' or tx_ongoing_bk = '1' or tx_ongoing = '1') then 	 -- MAYBE tx_fifo_almost_empty
-				rd_en																				<= '0';
+				tx_rd_en																		<= '0';
 				-- tx_fifo_out_ready														<= '0';
 			else 																																														
-				rd_en																				<= '1';
+				tx_rd_en																		<= '1';
 				-- tx_fifo_out_ready														<= '1';																			 -- Should happen clk cycle after rd_en = 1 since data not ready immediately
 				
 				tx_ongoing_bk																<= '1';
@@ -178,7 +178,7 @@ tx_fifo : fifo_generator_0
 				tx_ongoing_bk																<= '0';
 			end if;
 			
-			if (rd_en = '1') then 
+			if (tx_rd_en = '1') then 
 				tx_fifo_out_ready														<= '1';
 			else 
 				tx_fifo_out_ready														<= '0';
