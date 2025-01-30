@@ -56,7 +56,6 @@ signal tx_data_i																		: std_logic_vector(7 downto 0);
 signal tx_o																					: std_logic;
 signal tx_state																			: integer;
 signal actual_tx_state															: TX_STATES;																				-- dbg
-signal reset_tx																			: std_logic;
 signal tx_fifo_out_ready_bk													: std_logic;																				-- Latch onto tx_fifo_out_ready till 
 																																																				-- tx_clk catches up
 
@@ -68,8 +67,9 @@ signal tx_clk																				: std_logic;
 signal tx_clk_bk																		: std_logic;
 
 -- TX FIFO
-signal tx_wr_en																				: std_logic;
-signal tx_rd_en																				: std_logic;
+signal reset_tx																			: std_logic;
+signal tx_wr_en																			: std_logic;
+signal tx_rd_en																			: std_logic;
 signal tx_fifo_out																	: std_logic_vector(7 downto 0);
 signal tx_fifo_full																	: std_logic;
 signal tx_fifo_almost_full													:	std_logic;
@@ -135,7 +135,7 @@ tx_fifo : fifo_generator_0
 	
 	
 	TX_STATUS																			 		<= x"00000" & "000" & tx_fifo_full & "000" & tx_fifo_almost_full & "000" & tx_ongoing;
-	tx_wr_en																							<= TX_CONTROL(8);
+	tx_wr_en																					<= TX_CONTROL(8);
 
 	
 	tx_clock_gen : process(CLK, RESET, TX_CONTROL) 
