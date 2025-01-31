@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Receiver.srcs/sources_1/new/ReceiverTop.vhd" \
+"../../../../Receiver.srcs/sim_1/new/ReceiverTB.vhd" \
+
+# Do not sort compile order
+nosort

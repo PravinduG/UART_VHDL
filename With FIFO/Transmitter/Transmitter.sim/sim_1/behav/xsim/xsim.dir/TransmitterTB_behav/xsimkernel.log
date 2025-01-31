@@ -2,3 +2,6 @@ Running: xsim.dir/TransmitterTB_behav/xsimk.exe -simmode gui -wdb TransmitterTB_
 Design successfully loaded
 Design Loading Memory Usage: 30608 KB (Peak: 30608 KB)
 Design Loading CPU Usage: 296 ms
+Simulation completed
+Simulation Memory Usage: 39492 KB (Peak: 39492 KB)
+Simulation CPU Usage: 874 ms
