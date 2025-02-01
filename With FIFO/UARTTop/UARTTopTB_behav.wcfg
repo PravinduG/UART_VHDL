@@ -11,85 +11,105 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="6,001.000001 us"></ZoomEndTime>
-      <Cursor1Time time="6,001.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="11.340000001 ms"></ZoomEndTime>
+      <Cursor1Time time="0.991870000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="180"></NameColumnWidth>
-      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
-   <wvobject fp_name="/UARTTopTB/transmitter/CLK" type="logic">
+   <WVObjectSize size="23" />
+   <wvobject fp_name="/UARTTopTB/inst_uut/CLK" type="logic">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/transmitter/RESET" type="logic">
+   <wvobject fp_name="/UARTTopTB/inst_uut/RESET" type="logic">
       <obj_property name="ElementShortName">RESET</obj_property>
       <obj_property name="ObjectShortName">RESET</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/transmitter/TX_CONTROL" type="array">
+   <wvobject fp_name="/UARTTopTB/inst_uut/TX_CONTROL" type="array">
       <obj_property name="ElementShortName">TX_CONTROL[31:0]</obj_property>
       <obj_property name="ObjectShortName">TX_CONTROL[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/transmitter/TX_DATA" type="array">
-      <obj_property name="ElementShortName">TX_DATA[7:0]</obj_property>
-      <obj_property name="ObjectShortName">TX_DATA[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/UARTTopTB/transmitter/TX" type="logic">
-      <obj_property name="ElementShortName">TX</obj_property>
-      <obj_property name="ObjectShortName">TX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/UARTTopTB/receiver/RX_CONTROL" type="array">
+   <wvobject fp_name="/UARTTopTB/inst_uut/RX_CONTROL" type="array">
       <obj_property name="ElementShortName">RX_CONTROL[31:0]</obj_property>
       <obj_property name="ObjectShortName">RX_CONTROL[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/receiver/RX" type="logic">
+   <wvobject fp_name="/UARTTopTB/inst_uut/TX_DATA" type="array">
+      <obj_property name="ElementShortName">TX_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_DATA[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/RX" type="logic">
       <obj_property name="ElementShortName">RX</obj_property>
       <obj_property name="ObjectShortName">RX</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/receiver/RX_DATA" type="array">
+   <wvobject fp_name="/UARTTopTB/inst_uut/TX" type="logic">
+      <obj_property name="ElementShortName">TX</obj_property>
+      <obj_property name="ObjectShortName">TX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/RX_DATA" type="array">
       <obj_property name="ElementShortName">RX_DATA[7:0]</obj_property>
       <obj_property name="ObjectShortName">RX_DATA[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/receiver/RX_STATUS" type="array">
-      <obj_property name="ElementShortName">RX_STATUS[31:0]</obj_property>
-      <obj_property name="ObjectShortName">RX_STATUS[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/UARTTopTB/transmitter/TX_STATUS" type="array">
+   <wvobject fp_name="/UARTTopTB/inst_uut/TX_STATUS" type="array">
       <obj_property name="ElementShortName">TX_STATUS[31:0]</obj_property>
       <obj_property name="ObjectShortName">TX_STATUS[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/T_tb_tx_control_reg" type="array">
-      <obj_property name="ElementShortName">T_tb_tx_control_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">T_tb_tx_control_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/RX_STATUS" type="array">
+      <obj_property name="ElementShortName">RX_STATUS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_STATUS[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/T_tb_tx_status_reg" type="array">
-      <obj_property name="ElementShortName">T_tb_tx_status_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">T_tb_tx_status_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_clk" type="logic">
+      <obj_property name="ElementShortName">tx_clk</obj_property>
+      <obj_property name="ObjectShortName">tx_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/T_tb_rx_control_reg" type="array">
-      <obj_property name="ElementShortName">T_tb_rx_control_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">T_tb_rx_control_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Rx/rx_clk" type="logic">
+      <obj_property name="ElementShortName">rx_clk</obj_property>
+      <obj_property name="ObjectShortName">rx_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/T_tb_rx_status_reg" type="array">
-      <obj_property name="ElementShortName">T_tb_rx_status_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">T_tb_rx_status_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_wr_en" type="logic">
+      <obj_property name="ElementShortName">tx_wr_en</obj_property>
+      <obj_property name="ObjectShortName">tx_wr_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/R_tb_tx_control_reg" type="array">
-      <obj_property name="ElementShortName">R_tb_tx_control_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">R_tb_tx_control_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_rd_en" type="logic">
+      <obj_property name="ElementShortName">tx_rd_en</obj_property>
+      <obj_property name="ObjectShortName">tx_rd_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/R_tb_tx_status_reg" type="array">
-      <obj_property name="ElementShortName">R_tb_tx_status_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">R_tb_tx_status_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_ongoing" type="logic">
+      <obj_property name="ElementShortName">tx_ongoing</obj_property>
+      <obj_property name="ObjectShortName">tx_ongoing</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/R_tb_rx_control_reg" type="array">
-      <obj_property name="ElementShortName">R_tb_rx_control_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">R_tb_rx_control_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_ongoing" type="logic">
+      <obj_property name="ElementShortName">tx_ongoing</obj_property>
+      <obj_property name="ObjectShortName">tx_ongoing</obj_property>
    </wvobject>
-   <wvobject fp_name="/UARTTopTB/R_tb_rx_status_reg" type="array">
-      <obj_property name="ElementShortName">R_tb_rx_status_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">R_tb_rx_status_reg[31:0]</obj_property>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_ongoing_bk" type="logic">
+      <obj_property name="ElementShortName">tx_ongoing_bk</obj_property>
+      <obj_property name="ObjectShortName">tx_ongoing_bk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_fifo_out_ready" type="logic">
+      <obj_property name="ElementShortName">tx_fifo_out_ready</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_out_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Tx/tx_fifo_out_ready_bk" type="logic">
+      <obj_property name="ElementShortName">tx_fifo_out_ready_bk</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_out_ready_bk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Rx/rx_wr_en" type="logic">
+      <obj_property name="ElementShortName">rx_wr_en</obj_property>
+      <obj_property name="ObjectShortName">rx_wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Rx/rx_rd_en" type="logic">
+      <obj_property name="ElementShortName">rx_rd_en</obj_property>
+      <obj_property name="ObjectShortName">rx_rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Rx/rx_enable" type="logic">
+      <obj_property name="ElementShortName">rx_enable</obj_property>
+      <obj_property name="ObjectShortName">rx_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UARTTopTB/inst_uut/inst_Rx/rx_clk_enable" type="logic">
+      <obj_property name="ElementShortName">rx_clk_enable</obj_property>
+      <obj_property name="ObjectShortName">rx_clk_enable</obj_property>
    </wvobject>
 </wave_config>

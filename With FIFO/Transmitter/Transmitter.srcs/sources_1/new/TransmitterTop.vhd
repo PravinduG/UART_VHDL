@@ -15,8 +15,7 @@
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- TX_CONTROL 								->      32 : rx_fifo_almost_full	-> internal. only top module will see this
---															 31 - 28 : baud divisor select
+-- TX_CONTROL 								-> 31 - 28 : baud divisor select
 --																		 8 : fifo tx_wr_en
 --																		 4 : reset_tx
 -- 																		 0 : TX_ENABLE
@@ -43,7 +42,7 @@ entity TransmitterTop is
 						CLK 																		: in STD_LOGIC																			-- Connects to main clock
           ;	RESET 																	: in STD_LOGIC																			
 					; TX_DATA																	: in STD_LOGIC_VECTOR(7 downto 0)
-					; TX_CONTROL															: in STD_LOGIC_VECTOR(35 downto 0) 									-- 31 downto 28 gets baud divisor
+					; TX_CONTROL															: in STD_LOGIC_VECTOR(31 downto 0) 									-- 31 downto 28 gets baud divisor
 					; TX																			: out STD_LOGIC	
 					; TX_STATUS																: out STD_LOGIC_VECTOR(31 downto 0)
 				  );
@@ -57,7 +56,6 @@ signal tx_data_i																		: std_logic_vector(7 downto 0);
 signal tx_o																					: std_logic;
 signal tx_state																			: integer;
 signal actual_tx_state															: TX_STATES;																				-- dbg
-signal rx_fifo_almost_full													: std_logic;
 signal tx_fifo_out_ready_bk													: std_logic;																				-- Latch onto tx_fifo_out_ready till 
 																																																				-- tx_clk catches up
 
@@ -138,7 +136,7 @@ tx_fifo : fifo_generator_0
 	
 	TX_STATUS																			 		<= x"00000" & "000" & tx_fifo_full & "000" & tx_fifo_almost_full & "000" & tx_ongoing;
 	tx_wr_en																					<= TX_CONTROL(8); --and (not tx_fifo_almost_full);
-	rx_fifo_almost_full																<= TX_CONTROL(32);
+
 
 	
 	tx_clock_gen : process(CLK, RESET, TX_CONTROL) 
@@ -161,17 +159,17 @@ tx_fifo : fifo_generator_0
 	tx_fifo_proc : process(CLK, RESET, TX_CONTROL, TX_DATA)
 	begin
 		if (RESET = '1') then 
-			reset_tx																			<= '1';																							-- Reset fifo and transmission
+			reset_tx																			<= '1';																						-- Reset fifo and transmission
 			tx_rd_en																			<= '0';
 			tx_fifo_out_ready 														<= '0';
 			tx_ongoing_bk																	<= '0';
 		elsif (rising_edge(CLK)) then 
 			reset_tx																			<= RESET;
-			if (tx_fifo_empty = '1' or tx_enable = '0' or tx_ongoing_bk = '1' or tx_ongoing = '1' or rx_fifo_almost_full = '1') then 	 -- MAYBE tx_fifo_almost_empty
+			if (tx_fifo_empty = '1' or tx_enable = '0' or tx_ongoing_bk = '1' or tx_ongoing = '1') then 	 	-- MAYBE tx_fifo_almost_empty
 				tx_rd_en																		<= '0';
 			else 																																														
 				tx_rd_en																		<= '1';
-				tx_ongoing_bk																<= '1';
+				tx_ongoing_bk																<= '1';																						-- prevents rd_en reasserting till tx_ongoing is asserted on slow tx clk
 			end if;
 			
 			if (cur_state = STOP) then 
@@ -179,9 +177,9 @@ tx_fifo : fifo_generator_0
 			end if;
 			
 			if (tx_rd_en = '1') then 
-				tx_fifo_out_ready														<= '1';
+				tx_fifo_out_ready														<= '1';																						-- fifo out ready one clock cycle after rd_en is given
 			else 
-				tx_fifo_out_ready														<= '0';
+				tx_fifo_out_ready														<= '0';																						-- deasserted after one clock cycle
 			end if;
 			
 		end if;
@@ -203,7 +201,7 @@ tx_fifo : fifo_generator_0
 			tx_enable																			<= TX_CONTROL(0);
 			
 			if (tx_fifo_out_ready = '1') then 
-				tx_fifo_out_ready_bk												<= '1';
+				tx_fifo_out_ready_bk												<= '1';																							-- Latches onto fifo_out_ready till tx actually begins
 			end if;
 			
 				case cur_state is
@@ -224,8 +222,8 @@ tx_fifo : fifo_generator_0
 						
 					when DATA =>
 						if(tx_clk = '1' and tx_clk_bk = '0') then
-							if (tx_state = 8) then 
-								cur_state 													<= STOP;
+							if (tx_state = 8) then 																																		-- STOP condition
+								cur_state 													<= STOP;	
 								tx_state														<= 0;
 								tx_o																<= '1';
 							end if;	
@@ -237,7 +235,7 @@ tx_fifo : fifo_generator_0
 						
 					when STOP =>
 						if(tx_clk = '1' and tx_clk_bk = '0') then
-							tx_o																	<= '1';																							-- End bit
+							tx_o																	<= '1';																							-- Stop bit
 							cur_state															<= IDLE;	
 							tx_ongoing														<= '0';	-- Since we use this output to pull down TX_ENABLE, we need this here. if it's in IDLE, this will never become
 																														-- 0 as it will constantly satisfy the if condition there

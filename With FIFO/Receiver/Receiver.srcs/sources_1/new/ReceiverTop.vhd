@@ -76,6 +76,7 @@ signal rx_fifo_full																	: std_logic;																			-- Internal S
 signal rx_fifo_almost_full													: std_logic;																			-- Internal Signals
 signal rx_fifo_empty																: std_logic;
 signal rx_fifo_almost_empty													: std_logic;
+signal rx_enable 																		: std_logic;
 
 	
 COMPONENT fifo_generator_0
@@ -131,11 +132,12 @@ begin
 	
 	RX_STATUS																			 		<= x"0000" & "000" & rx_fifo_almost_full &  "000" & rx_fifo_empty & "000" & rx_fifo_almost_empty & "000" & rx_error;
 	rx_rd_en																					<= RX_CONTROL(8) and (not rx_fifo_empty); -- Only read if read is given and fifo not empty
+	rx_enable																					<= RX_CONTROL(0);
 		
 	rx_clk_gen : process(CLK, RESET, RX_CONTROL)
-	begin
+	begin																
 		if (RESET = '1' or rx_clk_enable = '0') then 
-			rx_clk																				<= '0';
+			rx_clk																				<= '0';																							-- rx clk starts on 0. 180 phase shift with tx clk
 			rx_clk_bk																			<= '0';
 			baud_counter																	<= (others => '0');
 		elsif(rising_edge(CLK)) then 
@@ -159,7 +161,7 @@ begin
 			rx_wr_en																			<= '0';
 		elsif (rising_edge(CLK)) then 
 			reset_rx																			<= RESET;	
-			if (rx_ready_o = '0' or rx_fifo_almost_full = '1' or rx_fifo_full = '1') then 
+			if (rx_ready_o = '0' or rx_fifo_almost_full = '1' or rx_fifo_full = '1') then 										-- don't receive if fifo full or nothing to receive
 				rx_wr_en																		<= '0';
 			else	
 				rx_wr_en																		<= '1';
@@ -176,7 +178,7 @@ begin
 			rx_clk_enable																	<= '0';
 			rx_ready_o																		<= '0';
 		elsif(rising_edge(CLK)) then		
-			if (RX_CONTROL(0) = '1') then 
+			if (cur_state = IDLE and RX = '0') then 																												-- rx clk starts as RX line is pulled down
 				rx_clk_enable																<= '1';
 			end if;
 			
@@ -189,34 +191,33 @@ begin
 				when IDLE =>
 					rx_state																	<= 0;
 					if(rx_clk = '1' and rx_clk_bk = '0') then
-						if (RX_CONTROL(0) = '1' and RX = '0') then 
-							rx_ready_o														<= '0';
+						if (rx_enable = '1' and RX = '0') then 
 							rx_data_o															<= (others => '0');																-- Data kept till next tx begins
 							cur_state															<= RECEIVING;
 							rx_state															<= 1;
 							rx_error															<= '0';
-						elsif (RX_CONTROL(0) = '0' and RX = '0') then 
+						elsif (rx_enable = '0' and RX = '0') then 																								-- Error if RX line pulled down when receiver not enabled
 							rx_error															<= '1';
 							rx_ready_o														<= '0';
 						end if;
 					end if;
 				when RECEIVING =>
 					if(rx_clk = '1' and rx_clk_bk = '0') then
-						if (rx_state = 8) then 
-							cur_state															<= STOP;
+						if (rx_state = 8) then 																																		-- Final bit received
+							cur_state															<= STOP;																					
 						end if;
 																							
-						rx_data_o																<= RX & rx_data_o(7 downto 1);
-						rx_state																<= rx_state + 1;
+						rx_data_o																<= RX & rx_data_o(7 downto 1);										-- Shifting register
+						rx_state																<= rx_state + 1;	
 					end if;
 
 				when STOP =>
 					if(rx_clk = '1' and rx_clk_bk = '0') then
-						if (RX = '1' and rx_state = 9) then 
+						if (RX = '1' and rx_state = 9) then 																											-- Stop bit
 							cur_state															<= IDLE;
-							rx_ready_o														<= '1';
+							rx_ready_o														<= '1';																						-- rx_ready_o asserted
 							rx_state															<= 0;
-							rx_clk_enable													<= '0';
+							rx_clk_enable													<= '0';																						-- rx clk disabled
 						elsif (RX = '0' and rx_state = 9) then 
 							rx_error															<= '1';
 							rx_ready_o														<= '0';
