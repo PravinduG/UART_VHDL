@@ -3,10 +3,10 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Mon Jan 20 21:01:56 2025
-# Process ID         : 12708
+# Start of session at: Sat Feb  1 14:21:41 2025
+# Process ID         : 11784
 # Current directory  : H:/Users/Pravindu/Xilinx/UART_Module/UARTTop
-# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent22836 H:\Users\Pravindu\Xilinx\UART_Module\UARTTop\UARTTop.xpr
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent364 H:\Users\Pravindu\Xilinx\UART_Module\UARTTop\UARTTop.xpr
 # Log file           : H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/vivado.log
 # Journal file       : H:/Users/Pravindu/Xilinx/UART_Module/UARTTop\vivado.jou
 # Running On         : DESKTOP-H5RMGH4
@@ -19,76 +19,59 @@
 # Host memory        : 16869 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 21164 MB
-# Available Virtual  : 4393 MB
+# Available Virtual  : 2214 MB
 #-----------------------------------------------------------
 start_gui
 open_project H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.xpr
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at H:/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at H:/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at H:/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
-INFO: [Project 1-313] Project file moved from 'H:/Users/Pravindu/Xilinx/UART_For_Basys3_FPGA/UARTTop' since last save.
-INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'H:/Xilinx/Vivado/2024.2/data/ip'.
-open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1591.465 ; gain = 339.820
+open_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1637.062 ; gain = 401.445
 update_compile_order -fileset sources_1
 launch_simulation
 Command: launch_simulation 
 INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [SIM-utils-72] Using boost library from 'H:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'H:/Xilinx/Vivado/2024.2/data/xsim/xsim.ini' copied to run dir:'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-54] Inspecting design source files for 'UARTTopTB' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj UARTTopTB_vlog.prj"
 "xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/Baud_Rate_Gen/Baud_Rate_Gen.srcs/sources_1/new/BaudGenTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'BaudGenTop'
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/Receiver/Receiver.srcs/sources_1/new/ReceiverTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ReceiverTop'
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.srcs/sources_1/new/TransmitterTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'TransmitterTop'
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sources_1/new/UARTTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'UARTTop'
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sim_1/new/UARTTopTB.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'UARTTopTB'
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log"
 Vivado Simulator v2024.2.0
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
+Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.BaudGenTop [baudgentop_default]
-Compiling architecture behavioral of entity xil_defaultlib.TransmitterTop [transmittertop_default]
-Compiling architecture behavioral of entity xil_defaultlib.ReceiverTop [receivertop_default]
-Compiling architecture behavioral of entity xil_defaultlib.UARTTop [uarttop_default]
-Compiling architecture behavioral of entity xil_defaultlib.uarttoptb
-Built simulation snapshot UARTTopTB_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
 INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "UARTTopTB_behav -key {Behavioral:sim_1:Functional:UARTTopTB} -tclbatch {UARTTopTB.tcl} -log {simulate.log}"
+   with args "UARTTopTB_behav -key {Behavioral:sim_1:Functional:UARTTopTB} -tclbatch {UARTTopTB.tcl} -view {H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTopTB_behav.wcfg} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Time resolution is 1 ps
+open_wave_config H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTopTB_behav.wcfg
 source UARTTopTB.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
@@ -102,184 +85,46 @@ source UARTTopTB.tcl
 # run 1000ns
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'UARTTopTB_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1654.699 ; gain = 36.320
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1667.070 ; gain = 17.633
+run 6 ms
 relaunch_sim
 Command: launch_simulation -step compile -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [SIM-utils-72] Using boost library from 'H:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'H:/Xilinx/Vivado/2024.2/data/xsim/xsim.ini' copied to run dir:'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-54] Inspecting design source files for 'UARTTopTB' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj UARTTopTB_vlog.prj"
 "xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-Time resolution is 1 ps
-run 30 ms
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sources_1/new/UARTTop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'UARTTop'
 INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log"
 Vivado Simulator v2024.2.0
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
+Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-Time resolution is 1 ps
-run 30 ms
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-Time resolution is 1 ps
-run 30 ms
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-Time resolution is 1 ps
-run 30 ms
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2553.578 ; gain = 0.000
-run 30 ms
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from 'H:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'UARTTopTB' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sources_1/new/UARTTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'UARTTop'
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -288,196 +133,93 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.BaudGenTop [baudgentop_default]
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling module fifo_generator_v13_2_11.fifo_generator_v13_2_11_bhv_ver_...
+Compiling module fifo_generator_v13_2_11.fifo_generator_v13_2_11_CONV_VER...
+Compiling module fifo_generator_v13_2_11.fifo_generator_vlog_beh(C_COMMON...
+Compiling module xil_defaultlib.fifo_generator_0
 Compiling architecture behavioral of entity xil_defaultlib.TransmitterTop [transmittertop_default]
 Compiling architecture behavioral of entity xil_defaultlib.ReceiverTop [receivertop_default]
 Compiling architecture behavioral of entity xil_defaultlib.UARTTop [uarttop_default]
 Compiling architecture behavioral of entity xil_defaultlib.uarttoptb
 Built simulation snapshot UARTTopTB_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "UARTTopTB_behav -key {Behavioral:sim_1:Functional:UARTTopTB} -tclbatch {UARTTopTB.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
 Time resolution is 1 ps
-source UARTTopTB.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-# run 1000ns
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'UARTTopTB_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2553.578 ; gain = 0.000
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1672.430 ; gain = 3.977
+run 6 ms
+save_wave_config {H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTopTB_behav1.wcfg}
+add_files -fileset sim_1 -norecurse H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTopTB_behav1.wcfg
+set_property xsim.view {H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTopTB_behav.wcfg H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTopTB_behav1.wcfg} [get_filesets sim_1]
 relaunch_sim
 Command: launch_simulation -step compile -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj UARTTopTB_vlog.prj"
 "xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
 Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log"
 Vivado Simulator v2024.2.0
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
+Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
 INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
 Time resolution is 1 ps
-run 30 ms
+relaunch_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1682.852 ; gain = 0.000
+run 6 ms
 relaunch_sim
 Command: launch_simulation -step compile -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj UARTTopTB_vlog.prj"
 "xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
 Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
 INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log"
 Vivado Simulator v2024.2.0
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
+Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_11 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-Time resolution is 1 ps
-run 30 ms
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/Receiver/Receiver.srcs/sources_1/new/ReceiverTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ReceiverTop'
-INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sources_1/new/UARTTop.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'UARTTop'
-INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.BaudGenTop [baudgentop_default]
-Compiling architecture behavioral of entity xil_defaultlib.TransmitterTop [transmittertop_default]
-Compiling architecture behavioral of entity xil_defaultlib.ReceiverTop [receivertop_default]
-Compiling architecture behavioral of entity xil_defaultlib.UARTTop [uarttop_default]
-Compiling architecture behavioral of entity xil_defaultlib.uarttoptb
-Built simulation snapshot UARTTopTB_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
-Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2553.578 ; gain = 0.000
-run 30 ms
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-Time resolution is 1 ps
-run 30 ms
-relaunch_sim
-Command: launch_simulation -step compile -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj UARTTopTB_vhdl.prj"
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
-INFO: [Vivado 12-12493] Simulation top is 'UARTTopTB'
-WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log"
-Vivado Simulator v2024.2.0
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: H:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UARTTopTB_behav xil_defaultlib.UARTTopTB -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
 INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
 Time resolution is 1 ps
-run 30 ms
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-exit
-INFO: [Common 17-206] Exiting Vivado at Mon Jan 20 23:12:35 2025...
+relaunch_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1724.473 ; gain = 0.000
+run 6 ms

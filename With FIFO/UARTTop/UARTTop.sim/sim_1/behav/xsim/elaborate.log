@@ -6,21 +6,4 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package vl.vl_types
-Compiling module xil_defaultlib.glbl
-Compiling module fifo_generator_v13_2_11.fifo_generator_v13_2_11_bhv_ver_...
-Compiling module fifo_generator_v13_2_11.fifo_generator_v13_2_11_CONV_VER...
-Compiling module fifo_generator_v13_2_11.fifo_generator_vlog_beh(C_COMMON...
-Compiling module xil_defaultlib.fifo_generator_0
-Compiling architecture behavioral of entity xil_defaultlib.TransmitterTop [transmittertop_default]
-Compiling architecture behavioral of entity xil_defaultlib.ReceiverTop [receivertop_default]
-Compiling architecture behavioral of entity xil_defaultlib.UARTTop [uarttop_default]
-Compiling architecture behavioral of entity xil_defaultlib.uarttoptb
-Built simulation snapshot UARTTopTB_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

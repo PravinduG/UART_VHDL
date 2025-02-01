@@ -44,7 +44,7 @@ signal tx_data_i                                    : std_logic_vector(7 downto 
 signal tx_done                                      : std_logic := '0';
 
 -- Transmitter
-signal baud_divisor_sel_reg													: std_logic_vector(3 downto 0):= x"a";
+signal baud_divisor_sel_reg													: std_logic_vector(3 downto 0):= x"d";
 signal tx_control_reg                               : std_logic_vector(31 downto 0) := x"00000000";
 signal rx_control_reg                               : std_logic_vector(31 downto 0) := (others => '0');
 signal tx_data                                      : std_logic_vector(7 downto 0) := (others => '0');

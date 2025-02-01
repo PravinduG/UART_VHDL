@@ -17,7 +17,7 @@
 -- Additional Comments:
 -- UARTTop -------------------------------------------------------
 -- Use BAUD_DIVISOR_SEL to select baud rate using the following key:
--- case TX_BAUD_DIVISOR_SEL(3 downto 0) is
+-- case BAUD_DIVISOR_SEL(3 downto 0) is
 --         when x"1"     			=> baud_divisor <= x"05161";  --    2400
 --         when x"2"     			=> baud_divisor <= x"028b0";  --    4800
 --         when x"3"     			=> baud_divisor <= x"01458";  --    9600
@@ -142,6 +142,7 @@ begin
 	RX_DATA                                           <= rx_data_o;
 	TX																								<= tx_o;															-- TX of UARTTop
 	rx_i																							<= RX;																-- RX of UARTTop
+	baud_divisor_sel_reg															<= BAUD_DIVISOR_SEL;
 							
 	inst_Tx	: TransmitterTop
 		port map( 
