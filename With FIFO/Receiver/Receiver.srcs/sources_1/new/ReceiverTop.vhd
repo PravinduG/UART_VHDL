@@ -15,8 +15,8 @@
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- RX_CONTROL 								-> 31 - 28 : baud divisor select
---																		 8 : fifo rx_rd_en
+-- RX_BAUD_DIVISOR_SEL				->   3 - 0 : baud divisor select
+-- RX_CONTROL 								-> 			 8 : fifo rx_rd_en
 --																		 4 : reset_rx
 -- 																		 0 : RX_ENABLE is TX_READY (tx_ongoing)
 -- RX_STATUS									-> 			12 : rx_fifo_almost_full 
@@ -43,6 +43,7 @@ entity ReceiverTop is
 						CLK																			: in STD_LOGIC
 					;	RESET 																	: in STD_LOGIC
 					;	RX																			: in STD_LOGIC
+					; RX_BAUD_DIVISOR_SEL											: in STD_LOGIC_VECTOR(3 downto 0)
 					; RX_CONTROL															: in STD_LOGIC_VECTOR(31 downto 0)
 					; RX_DATA																	: out STD_LOGIC_VECTOR(7 downto 0)
 					; RX_STATUS																: out STD_LOGIC_VECTOR(31 downto 0)
@@ -112,7 +113,7 @@ begin
 
 	set_baud_divisor : process(RX_CONTROL(31 downto 28))
 	begin
-		case RX_CONTROL(31 downto 28) is
+		case RX_BAUD_DIVISOR_SEL(3 downto 0) is
 				when x"1"                           				=> baud_divisor <= x"05161";  --    2400
 				when x"2"                           				=> baud_divisor <= x"028b0";  --    4800
 				when x"3"                           				=> baud_divisor <= x"01458";  --    9600

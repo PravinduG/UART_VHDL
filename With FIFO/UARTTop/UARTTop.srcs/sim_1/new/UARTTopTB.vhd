@@ -44,7 +44,8 @@ signal tx_data_i                                    : std_logic_vector(7 downto 
 signal tx_done                                      : std_logic := '0';
 
 -- Transmitter
-signal tx_control_reg                               : std_logic_vector(31 downto 0) := x"a0000000";
+signal baud_divisor_sel_reg													: std_logic_vector(3 downto 0):= x"a";
+signal tx_control_reg                               : std_logic_vector(31 downto 0) := x"00000000";
 signal rx_control_reg                               : std_logic_vector(31 downto 0) := (others => '0');
 signal tx_data                                      : std_logic_vector(7 downto 0) := (others => '0');
 signal rx                                           : std_logic := '0';
@@ -57,17 +58,18 @@ signal rx_status_reg                                : std_logic_vector(31 downto
 
 component UARTTop is
          Port ( 
-                        CLK                         : in STD_LOGIC;
-                        RESET                       : in STD_LOGIC;
-                        TX_CONTROL                  : in STD_LOGIC_VECTOR(31 downto 0);
-                        RX_CONTROL                  : in STD_LOGIC_VECTOR(31 downto 0);
-                        TX_DATA                     : in STD_LOGIC_VECTOR(7 downto 0);
-                        RX                          : in STD_LOGIC;
-                        TX                          : out STD_LOGIC;
-                        RX_DATA                     : out STD_LOGIC_VECTOR(7 downto 0);
-                        TX_STATUS                   : out STD_LOGIC_VECTOR(31 downto 0);
-                        RX_STATUS                   : out STD_LOGIC_VECTOR(31 downto 0)
-                        );
+                        CLK                         : in STD_LOGIC
+                      ; RESET                       : in STD_LOGIC
+											;	BAUD_DIVISOR_SEL						: in STD_LOGIC_VECTOR(3 downto 0)
+                      ; TX_CONTROL                  : in STD_LOGIC_VECTOR(31 downto 0)
+                      ; RX_CONTROL                  : in STD_LOGIC_VECTOR(31 downto 0)
+                      ; TX_DATA                     : in STD_LOGIC_VECTOR(7 downto 0)
+                      ; RX                          : in STD_LOGIC
+                      ; TX                          : out STD_LOGIC
+                      ; RX_DATA                     : out STD_LOGIC_VECTOR(7 downto 0)
+                      ; TX_STATUS                   : out STD_LOGIC_VECTOR(31 downto 0)
+                      ; RX_STATUS                   : out STD_LOGIC_VECTOR(31 downto 0)
+                      );
 end component;
 
 begin
@@ -76,16 +78,17 @@ begin
 
 	inst_uut : UARTTop
 			port map(
-											CLK                           => clk,
-											RESET                         => reset,
-											TX_CONTROL                    => tx_control_reg,
-											RX_CONTROL                    => rx_control_reg, 
-											TX_DATA                       => tx_data,				
-											RX                            => rx,
-											TX                            => tx,							
-											RX_DATA                       => rx_data,
-											TX_STATUS                     => tx_status_reg,	
-											RX_STATUS                     => rx_status_reg 
+											CLK                           => clk
+										,	RESET                         => reset
+										,	BAUD_DIVISOR_SEL							=> baud_divisor_sel_reg
+										,	TX_CONTROL                    => tx_control_reg
+										,	RX_CONTROL                    => rx_control_reg 
+										,	TX_DATA                       => tx_data				
+										,	RX                            => rx
+										,	TX                            => tx						
+										,	RX_DATA                       => rx_data
+										,	TX_STATUS                     => tx_status_reg	
+										,	RX_STATUS                     => rx_status_reg 
 											);
 
 	clk_gen : process

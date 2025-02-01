@@ -15,8 +15,8 @@
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- TX_CONTROL 								-> 31 - 28 : baud divisor select
---																		 8 : fifo tx_wr_en
+-- TX_BAUD_DIVISOR_SEL				->   3 - 0 : baud divisor select
+-- TX_CONTROL 								-> 			 8 : fifo tx_wr_en
 --																		 4 : reset_tx
 -- 																		 0 : TX_ENABLE
 -- TX_STATUS									-> 			 8 : tx_fifo_full
@@ -40,8 +40,9 @@ use IEEE.NUMERIC_STD.ALL;
 entity TransmitterTop is
     Port ( 
 						CLK 																		: in STD_LOGIC																			-- Connects to main clock
-          ;	RESET 																	: in STD_LOGIC																			
+          ;	RESET 																	: in STD_LOGIC			
 					; TX_DATA																	: in STD_LOGIC_VECTOR(7 downto 0)
+					; TX_BAUD_DIVISOR_SEL											: in STD_LOGIC_VECTOR(3 downto 0)
 					; TX_CONTROL															: in STD_LOGIC_VECTOR(31 downto 0) 									-- 31 downto 28 gets baud divisor
 					; TX																			: out STD_LOGIC	
 					; TX_STATUS																: out STD_LOGIC_VECTOR(31 downto 0)
@@ -115,7 +116,7 @@ tx_fifo : fifo_generator_0
 
 	set_baud_divisor : process(TX_CONTROL(31 downto 28))
   begin
-    case TX_CONTROL(31 downto 28) is
+    case TX_BAUD_DIVISOR_SEL(3 downto 0) is
         when x"1"                           				=> baud_divisor <= x"05161";  --    2400
         when x"2"                           				=> baud_divisor <= x"028b0";  --    4800
         when x"3"                           				=> baud_divisor <= x"01458";  --    9600

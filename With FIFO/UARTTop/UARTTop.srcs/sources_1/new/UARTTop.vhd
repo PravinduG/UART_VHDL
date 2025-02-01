@@ -16,8 +16,8 @@
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- UARTTop -------------------------------------------------------
--- Use BAUD_SELECT to select baud rate using the following key:
--- case TX_CONTROL(31 downto 28) is
+-- Use BAUD_DIVISOR_SEL to select baud rate using the following key:
+-- case TX_BAUD_DIVISOR_SEL(3 downto 0) is
 --         when x"1"     			=> baud_divisor <= x"05161";  --    2400
 --         when x"2"     			=> baud_divisor <= x"028b0";  --    4800
 --         when x"3"     			=> baud_divisor <= x"01458";  --    9600
@@ -35,8 +35,8 @@
 -- end case;
 ------------------------------------------------------------------
 -- Transmitter ---------------------------------------------------
--- TX_CONTROL 								-> 31 - 28 : baud divisor select
---																		 8 : fifo tx_wr_en
+-- TX_BAUD_DIVISOR_SEL				->   3 - 0 : baud divisor select
+-- TX_CONTROL 								-> 			 8 : fifo tx_wr_en
 --																		 4 : reset_tx
 -- 																		 0 : TX_ENABLE
 -- TX_STATUS									-> 			 8 : tx_fifo_full
@@ -44,8 +44,8 @@
 --																		 0 : tx_ongoing
 ------------------------------------------------------------------
 -- Receiver ------------------------------------------------------
--- RX_CONTROL 								-> 31 - 28 : baud divisor select
---																		 8 : fifo rx_rd_en
+-- RX_BAUD_DIVISOR_SEL				->   3 - 0 : baud divisor select
+-- RX_CONTROL 								-> 			 8 : fifo rx_rd_en
 --																		 4 : reset_rx
 -- 																		 0 : RX_ENABLE is TX_READY (tx_ongoing)
 -- RX_STATUS									-> 			12 : rx_fifo_almost_full 
@@ -54,9 +54,9 @@
 --																		 0 : rx_error
 ------------------------------------------------------------------
 -- General Info and Guidelines:  
--- 		wr_en <= not tx_fifo_almost_full generally works pretty well
---		creating rx_control_reg by concatenating rx_control_reg(31 downto 1) and tx_ongoing directly enables rx when tx begins
---		tx_control(35 downto 32) is not visible to the outside
+-- 		Stop transmission once rx_fifo_almost_full is high
+--		rx_control_reg(8) <= not rx_status_reg(8) ensures we won't read from empty rx_fifo
+-- 		rx_control(0) ie rx_enable must be set high with assertion of tx_control(0) ie tx_enable (or when data is being fed into RX port)
 ------------------------------------------------------------------
 
 
@@ -76,6 +76,7 @@ entity UARTTop is
 			Port ( 
 							CLK																		: in STD_LOGIC
 						; RESET 																: in STD_LOGIC 
+						; BAUD_DIVISOR_SEL											: in STD_LOGIC_VECTOR(3 downto 0)
 						; TX_CONTROL														: in STD_LOGIC_VECTOR(31 downto 0)
 						; RX_CONTROL														: in STD_LOGIC_VECTOR(31 downto 0)
 						; TX_DATA																: in STD_LOGIC_VECTOR(7 downto 0)
@@ -88,6 +89,7 @@ entity UARTTop is
 end UARTTop;
 
 architecture Behavioral of UARTTop is
+signal baud_divisor_sel_reg													: std_logic_vector(3 downto 0);
 
 -- For TransmitterTop
 signal tx_data_i																		: std_logic_vector(7 downto 0);
@@ -108,8 +110,9 @@ signal rx_status_reg																: std_logic_vector(31 downto 0);
 component TransmitterTop is
     Port ( 
 						CLK 																		: in STD_LOGIC																			-- Connects to main clock
-          ;	RESET 																	: in STD_LOGIC																			
+          ;	RESET 																	: in STD_LOGIC			
 					; TX_DATA																	: in STD_LOGIC_VECTOR(7 downto 0)
+					; TX_BAUD_DIVISOR_SEL											: in STD_LOGIC_VECTOR(3 downto 0)
 					; TX_CONTROL															: in STD_LOGIC_VECTOR(31 downto 0) 									-- 31 downto 28 gets baud divisor
 					; TX																			: out STD_LOGIC	
 					; TX_STATUS																: out STD_LOGIC_VECTOR(31 downto 0)
@@ -123,6 +126,7 @@ component ReceiverTop is
 						CLK																			: in STD_LOGIC
 					;	RESET 																	: in STD_LOGIC
 					;	RX																			: in STD_LOGIC
+					; RX_BAUD_DIVISOR_SEL											: in STD_LOGIC_VECTOR(3 downto 0)
 					; RX_CONTROL															: in STD_LOGIC_VECTOR(31 downto 0)
 					; RX_DATA																	: out STD_LOGIC_VECTOR(7 downto 0)
 					; RX_STATUS																: out STD_LOGIC_VECTOR(31 downto 0)
@@ -144,6 +148,7 @@ begin
 					  		CLK 																=> CLK 
 					  	,	RESET 															=> RESET  
 					  	, TX_DATA															=> tx_data_i
+							, TX_BAUD_DIVISOR_SEL									=> baud_divisor_sel_reg
 					  	, TX_CONTROL													=> tx_control_reg
 					  	, TX																	=> tx_o																-- TX of TransmitterTop
 					  	, TX_STATUS														=> tx_status_reg 
@@ -154,6 +159,7 @@ begin
 								CLK																	=> CLK
 							,	RESET 															=> RESET
 							,	RX																	=> rx_i																-- RX of ReceiverTop
+							,	RX_BAUD_DIVISOR_SEL									=> baud_divisor_sel_reg
 							, RX_CONTROL													=> rx_control_reg
 							, RX_DATA															=> rx_data_o
 							, RX_STATUS														=> rx_status_reg
