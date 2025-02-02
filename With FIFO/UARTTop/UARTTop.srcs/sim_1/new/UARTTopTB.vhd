@@ -107,11 +107,12 @@ begin
 			wait;
 	end process; 
 		
-	tx_proc : process(clk, reset, rx_control_reg, rx_status_reg, tx_control_reg, tx_status_reg, rx_control_reg, rx_status_reg)
+	tx_proc : process(clk, reset)
 	begin
 			if (reset = '1') then 
 					tx_control_reg(8)                         <= '0';
-			elsif (rising_edge(clk) and tx_done = '0') then 
+			elsif (rising_edge(clk)) then 
+				if (tx_done = '0') then 
 					if (rx_status_reg(12) = '0') then 
 							tx_control_reg(0)                     <= '1';
 							rx_control_reg(0)                     <= '1';
@@ -129,10 +130,11 @@ begin
 									tx_done                           <= '1';
 							end if;
 					end if;
+				end if;
 			end if;
 	end process;
 
-	rx_proc : process(clk, reset, rx_control_reg, rx_status_reg, tx_control_reg, tx_status_reg, rx_control_reg, rx_status_reg)
+	rx_proc : process(clk, reset)
 	begin
 			if (reset = '1') then 
 					rx_control_reg(4)                         <= '0';

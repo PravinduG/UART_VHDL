@@ -166,6 +166,6 @@ begin
 							, RX_STATUS														=> rx_status_reg
 							);
 							
-	
+	-- check rx status and if not empty, rd one rx_data_o, and throw into tx module
 
 end Behavioral;
