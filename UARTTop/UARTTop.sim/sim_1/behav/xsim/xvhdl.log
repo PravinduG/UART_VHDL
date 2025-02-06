@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sources_1/new/UARTTop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'UARTTop'
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/Users/Pravindu/Xilinx/UART_Module/UARTTop/UARTTop.srcs/sim_1/new/UARTTopTB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'UARTTopTB'

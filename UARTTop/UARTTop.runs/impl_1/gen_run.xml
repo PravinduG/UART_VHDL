@@ -1,70 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1738435445">
-  <File Type="PA-TCL" Name="UARTLoopBack.tcl"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1738477160">
   <File Type="REPORTS-TCL" Name="UARTLoopBack_reports.tcl"/>
-  <File Type="INIT-TIMING" Name="UARTLoopBack_timing_summary_init.rpt"/>
-  <File Type="OPT-DCP" Name="UARTLoopBack_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="UARTLoopBack_power_summary_routed.pb"/>
+  <File Type="BITSTR-MMI" Name="UARTLoopBack.mmi"/>
   <File Type="OPT-DRC" Name="UARTLoopBack_drc_opted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="UARTLoopBack_methodology_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="UARTLoopBack.hwdef"/>
-  <File Type="OPT-TIMING" Name="UARTLoopBack_timing_summary_opted.rpt"/>
-  <File Type="OPT-RQA-PB" Name="UARTLoopBack_rqa_opted.pb"/>
-  <File Type="PWROPT-DCP" Name="UARTLoopBack_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="UARTLoopBack_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="UARTLoopBack_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="UARTLoopBack_placed.dcp"/>
-  <File Type="PLACE-IO" Name="UARTLoopBack_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="UARTLoopBack_clock_utilization_placed.rpt"/>
+  <File Type="BG-DRC" Name="UARTLoopBack.drc"/>
+  <File Type="ROUTE-STATUS-PB" Name="UARTLoopBack_route_status.pb"/>
+  <File Type="BG-BGN" Name="UARTLoopBack.bgn"/>
   <File Type="PLACE-UTIL" Name="UARTLoopBack_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="UARTLoopBack_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="UARTLoopBack_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="UARTLoopBack_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="UARTLoopBack_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="UARTLoopBack_timing_summary_placed.rpt"/>
-  <File Type="PLACE-RQA-PB" Name="UARTLoopBack_rqa_placed.pb"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="UARTLoopBack_postplace_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="UARTLoopBack_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="UARTLoopBack_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="UARTLoopBack_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-TIMING" Name="UARTLoopBack_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="UARTLoopBack_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="UARTLoopBack_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="UARTLoopBack_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="UARTLoopBack_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="UARTLoopBack_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="UARTLoopBack_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="UARTLoopBack_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="UARTLoopBack_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="UARTLoopBack_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="UARTLoopBack_power_routed.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="UARTLoopBack_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="UARTLoopBack_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="UARTLoopBack_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="UARTLoopBack_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="UARTLoopBack_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="UARTLoopBack_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="UARTLoopBack_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="UARTLoopBack_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="UARTLoopBack_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="UARTLoopBack_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="UARTLoopBack_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="UARTLoopBack_bus_skew_routed.rpx"/>
-  <File Type="ROUTE-RQS-PB" Name="UARTLoopBack_rqs_routed.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="UARTLoopBack_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="UARTLoopBack_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="UARTLoopBack_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="UARTLoopBack_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="UARTLoopBack_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="UARTLoopBack_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="UARTLoopBack_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="UARTLoopBack_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BG-BIT" Name="UARTLoopBack.bit"/>
+  <File Type="PLACE-IO" Name="UARTLoopBack_io_placed.rpt"/>
   <File Type="BG-BIN" Name="UARTLoopBack.bin"/>
+  <File Type="PLACE-CTRL" Name="UARTLoopBack_control_sets_placed.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="UARTLoopBack_power_routed.rpx"/>
+  <File Type="ROUTE-DCP" Name="UARTLoopBack_routed.dcp"/>
   <File Type="BITSTR-MSK" Name="UARTLoopBack.msk"/>
   <File Type="BITSTR-RBT" Name="UARTLoopBack.rbt"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="UARTLoopBack_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="UARTLoopBack_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="UARTLoopBack_route_status.rpt"/>
+  <File Type="PA-TCL" Name="UARTLoopBack.tcl"/>
+  <File Type="ROUTE-PWR" Name="UARTLoopBack_power_routed.rpt"/>
+  <File Type="ROUTE-DRC" Name="UARTLoopBack_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="UARTLoopBack_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="UARTLoopBack_drc_routed.pb"/>
+  <File Type="BITSTR-SYSDEF" Name="UARTLoopBack.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="UARTLoopBack_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="UARTLoopBack_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="UARTLoopBack.ltx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="UARTLoopBack_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-SIMILARITY" Name="UARTLoopBack_incremental_reuse_routed.rpt"/>
+  <File Type="RDI-RDI" Name="UARTLoopBack.vdi"/>
+  <File Type="ROUTE-CLK" Name="UARTLoopBack_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="UARTLoopBack_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="UARTLoopBack_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="UARTLoopBack_bus_skew_routed.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="UARTLoopBack_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="UARTLoopBack_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="UARTLoopBack_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="UARTLoopBack_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="UARTLoopBack_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="UARTLoopBack.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="UARTLoopBack_bus_skew_postroute_physopted.pb"/>
   <File Type="BITSTR-NKY" Name="UARTLoopBack.nky"/>
   <File Type="BITSTR-BMM" Name="UARTLoopBack_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="UARTLoopBack.mmi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="OPT-HWDEF" Name="UARTLoopBack.hwdef"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="UARTLoopBack_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="UARTLoopBack_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="UARTLoopBack_routed_bb.dcp"/>
+  <File Type="ROUTE-TIMING-PB" Name="UARTLoopBack_timing_summary_routed.pb"/>
+  <File Type="OPT-DCP" Name="UARTLoopBack_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="UARTLoopBack_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="UARTLoopBack_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="UARTLoopBack_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="UARTLoopBack_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="UARTLoopBack_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="UARTLoopBack_postroute_physopt_bb.dcp"/>
   <File Type="PDI-FILE" Name="UARTLoopBack.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="UARTLoopBack_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="UARTLoopBack_pld.pdi"/>
@@ -73,13 +66,6 @@
   <File Type="RNPI_FILE" Name="UARTLoopBack.rnpi"/>
   <File Type="NPI_FILE" Name="UARTLoopBack.npi"/>
   <File Type="RBD_FILE" Name="UARTLoopBack.rbd"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="UARTLoopBack.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="UARTLoopBack.sysdef"/>
-  <File Type="BG-BGN" Name="UARTLoopBack.bgn"/>
-  <File Type="BG-DRC" Name="UARTLoopBack.drc"/>
-  <File Type="RDI-RDI" Name="UARTLoopBack.vdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-RQS" Name="UARTLoopBack_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="UARTLoopBack_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -153,6 +139,7 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="fifo_generator_0"/>
 </GenRun>

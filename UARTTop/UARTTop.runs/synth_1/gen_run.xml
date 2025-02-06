@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1738435445" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/UARTLoopBack.dcp">
-  <File Type="PA-TCL" Name="UARTLoopBack.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1738477108" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/UARTLoopBack.dcp">
   <File Type="REPORTS-TCL" Name="UARTLoopBack_reports.tcl"/>
-  <File Type="RDS-RDS" Name="UARTLoopBack.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="UARTLoopBack_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="UARTLoopBack_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="UARTLoopBack_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="UARTLoopBack.tcl"/>
+  <File Type="RDS-RDS" Name="UARTLoopBack.vds"/>
   <File Type="RDS-DCP" Name="UARTLoopBack.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="UARTLoopBack_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="UARTLoopBack_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../Receiver/Receiver.srcs/sources_1/new/ReceiverTop.vhd">
