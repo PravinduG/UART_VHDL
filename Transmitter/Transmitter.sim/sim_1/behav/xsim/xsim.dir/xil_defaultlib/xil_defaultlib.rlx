@@ -2,5 +2,7 @@
 2020.2
 Nov  8 2024
 22:36:57
-H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.srcs/sim_1/new/TransmitterTB.vhd,1737547206,vhdl,,,,transmittertb,,,,,,,,
-H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.srcs/sources_1/new/TransmitterTop.vhd,1737547011,vhdl,,,,transmittertop,,,,,,,,
+H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.gen/sources_1/ip/fifo_generator_0/sim/fifo_generator_0.v,1738092231,verilog,,,,fifo_generator_0,,,,,,,,
+H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,
+H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.srcs/sim_1/new/TransmitterTB.vhd,1738176521,vhdl,,,,transmittertb,,,,,,,,
+H:/Users/Pravindu/Xilinx/UART_Module/Transmitter/Transmitter.srcs/sources_1/new/TransmitterTop.vhd,1738231617,vhdl,,,,transmittertop,,,,,,,,
